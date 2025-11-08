@@ -15,7 +15,7 @@ public class CookieCard : Card
 
 public class ItemCard : Card
 {
-
+    
 }
 
 public class TrapCard : Card
