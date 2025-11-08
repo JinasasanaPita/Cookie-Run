@@ -11,7 +11,7 @@ public class Area
 
 public class BreakArea : Area
 {
-
+    public int breakLevel;
 }
 
 public class BattleArea : Area
@@ -32,4 +32,9 @@ public class StageArea : Area
 public class Trash : Area
 {
     
+}
+
+public class Hand : Area
+{
+
 }

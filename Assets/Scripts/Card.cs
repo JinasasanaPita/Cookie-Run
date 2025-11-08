@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Card
@@ -11,6 +12,7 @@ public class CookieCard : Card
 {
     int level;
     int hp;
+    List<Card> hpCards;
 }
 
 public class ItemCard : Card

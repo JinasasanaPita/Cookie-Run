@@ -5,10 +5,16 @@ using UnityEngine;
 public class Player
 {
     public Deck deck = new Deck();
-    public Area breakArea = new Area();
+    public Hand hand = new Hand();
 
-    public string GetBreakAreaName()
+    public BreakArea breakArea = new BreakArea();
+    public BattleArea battleArea = new BattleArea();
+    public SupportArea supportArea = new SupportArea();
+    public StageArea stageArea = new StageArea();
+    public Trash trash = new Trash();
+
+    public void DrawFromDeckToHand()
     {
-        return breakArea.areaName;
+
     }
 }
