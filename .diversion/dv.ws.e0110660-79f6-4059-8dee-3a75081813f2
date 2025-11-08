@@ -1,0 +1,14 @@
+{
+  "WorkspaceID": "dv.ws.e0110660-79f6-4059-8dee-3a75081813f2",
+  "RepoID": "dv.repo.d9474862-d8c4-49e3-b9aa-938667babcfe",
+  "Path": "D:\\Projects\\Unity\\CookieRun",
+  "AccountID": "Google_109369472017371858586",
+  "BranchID": "dv.branch.1",
+  "BranchName": "main",
+  "CommitID": "",
+  "Paused": false,
+  "ShouldDownload": true,
+  "RepoName": "CookieRun",
+  "ReadOnly": false,
+  "DigestMethod": "sha1"
+}
