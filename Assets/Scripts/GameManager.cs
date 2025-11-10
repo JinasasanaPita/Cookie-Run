@@ -1,12 +1,22 @@
 using System;
 using UnityEngine;
 
+public enum Phase
+{
+    START,
+    ACTIVE,
+    DRAW,
+    SUPPORT,
+    MAIN,
+    END
+}
+
 public class GameManager : MonoBehaviour
 {
-    Player player1;
-    Player player2;
+    public Player player1;
+    public Player player2;
 
-    public string phase;
+    public Phase phase;
     public bool player1turn;
     public int turn_no = 1;
 
@@ -17,12 +27,13 @@ public class GameManager : MonoBehaviour
     {
         gameIsOngoing = true;
         player1turn = true;
-        phase = "support";
+        phase = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+        StartGame();
         CheckForLoseCondition();
         if (player1turn == true)
         {
@@ -30,77 +41,85 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            ExecutePlayerTurn(phase, player2);   
+            ExecutePlayerTurn(phase, player2);
         }
     }
 
+    public void StartGame()
+    {
+        // Rock paper scissors stone to decide who goes first
+        phase = Phase.ACTIVE;
+    }
+
+    public void ExecutePlayerTurn(Phase phase, Player player)
+    {
+        switch (phase)
+        {
+            case Phase.START:
+                ExecuteActivePhase(phase, player);
+                break;
+            case Phase.DRAW:
+                ExecuteDrawPhase(phase, player);
+                break;
+            case Phase.SUPPORT:
+                ExecuteSupportPhase(phase, player);
+                break;
+            case Phase.MAIN:
+                ExecuteMainPhase(phase, player);
+                break;
+            case Phase.END:
+                ExecuteEndPhase(phase, player);
+                break;
+        }
+    }
+
+    public void ExecuteActivePhase(Phase phase, Player player)
+    {
+        Debug.Log("Executing active phase");
+        phase = Phase.DRAW;
+    }
+
+    public void ExecuteDrawPhase(Phase phase, Player player)
+    {
+        Debug.Log("Executing draw phase");
+        phase = Phase.SUPPORT;
+    }
+
+    public void ExecuteSupportPhase(Phase phase, Player player)
+    {
+        Debug.Log("Executing support phase");
+        phase = Phase.MAIN;
+    }
+
+    public void ExecuteMainPhase(Phase phase, Player player)
+    {
+        Debug.Log("Executing main phase");
+        phase = Phase.END;
+    }
+
+    public void ExecuteEndPhase(Phase phase, Player player)
+    {
+        Debug.Log("Executing end phase");
+        EndTurn(phase);
+    }
+
+    public void EndTurn(Phase phase)
+    {
+        if (player1turn == true)
+            player1turn = false;
+        else
+        {
+            player1turn = true;
+            turn_no++;
+        }
+        phase = Phase.ACTIVE;
+    }
+    
     void CheckForLoseCondition()
     {
         if (player1.breakArea.breakLevel > 10 || player2.breakArea.breakLevel > 10)
         {
             gameIsOngoing = false;
         }
-    }
-
-    public void EndTurn()
-    {
-        if (player1turn == true)
-            player1turn = false;
-        else{
-            player1turn = true;
-            turn_no++;
-        }
-    }
-
-    public void ExecutePlayerTurn(string phase, Player player)
-    {
-        switch (phase)
-        {
-            case "active":
-                ExecuteActivePhase(phase, player);
-                break;
-            case "draw":
-                ExecuteDrawPhase(phase, player);
-                break;
-            case "support":
-                ExecuteSupportPhase(phase, player);
-                break;
-            case "main":
-                ExecuteMainPhase(phase, player);
-                break;
-            case "end":
-                ExecuteEndPhase(player);
-                break;
-        }
-    }
-
-    public void ExecuteActivePhase(string phase, Player player)
-    {
-        Debug.Log("Executing active phase");
-        phase = "draw";
-    }
-
-    public void ExecuteDrawPhase(string phase, Player player)
-    {
-        Debug.Log("Executing draw phase");
-        phase = "support";
-    }
-
-    public void ExecuteSupportPhase(string phase, Player player)
-    {
-        Debug.Log("Executing support phase");
-        phase = "main";
-    }
-
-    public void ExecuteMainPhase(string phase, Player player)
-    {
-        Debug.Log("Executing main phase");
-        phase = "end";
-    }
-
-    public void ExecuteEndPhase(Player player)
-    {
-        Debug.Log("Executing end phase");
-        EndTurn();
     }
 }

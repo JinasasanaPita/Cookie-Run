@@ -2,7 +2,7 @@ using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Player
+public class Player : MonoBehaviour
 {
     public Deck deck = new Deck();
     public Hand hand = new Hand();
@@ -15,6 +15,6 @@ public class Player
 
     public void DrawFromDeckToHand()
     {
-
+        
     }
 }
