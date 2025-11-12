@@ -1,0 +1,95 @@
+{
+  "deckName": "Starter Deck Red",
+  "deckID": "ST1",
+  "totalCards": 60,
+  "cards": [
+    {
+      "cardNo": "ST1-001",
+      "quantity": 4
+    },
+    {
+      "cardNo": "ST1-002",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-003",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-004",
+      "quantity": 4
+    },
+    {
+      "cardNo": "ST1-005",
+      "quantity": 4
+    },
+    {
+      "cardNo": "ST1-006",
+      "quantity": 4
+    },
+    {
+      "cardNo": "ST1-007",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-008",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-009",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-010",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-011",
+      "quantity": 4
+    },
+    {
+      "cardNo": "ST1-012",
+      "quantity": 4
+    },
+    {
+      "cardNo": "ST1-013",
+      "quantity": 4
+    },
+    {
+      "cardNo": "ST1-014",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-015",
+      "quantity": 4
+    },
+    {
+      "cardNo": "ST1-016",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-017",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-018",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-019",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-020",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-021",
+      "quantity": 2
+    },
+    {
+      "cardNo": "ST1-022",
+      "quantity": 2
+    }
+  ]
+}

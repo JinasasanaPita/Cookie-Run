@@ -33,77 +33,76 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartGame();
+        if (phase == Phase.START)
+            StartGame();
         CheckForLoseCondition();
         if (player1turn == true)
         {
-            ExecutePlayerTurn(phase, player1);
+            ExecutePlayerTurn(ref phase, player1);
         }
         else
         {
-            ExecutePlayerTurn(phase, player2);
+            ExecutePlayerTurn(ref phase, player2);
         }
     }
 
     public void StartGame()
     {
-        // Rock paper scissors stone to decide who goes first
+        // TODO: Each player draw 6
+
+        // TOOD: Check for mulligan
+        // TODO: (Low prio) Rock paper scissors stone to decide who goes first
         phase = Phase.ACTIVE;
     }
 
-    public void ExecutePlayerTurn(Phase phase, Player player)
+    public void ExecutePlayerTurn(ref Phase phase, Player player)
     {
         switch (phase)
         {
-            case Phase.START:
-                ExecuteActivePhase(phase, player);
+            case Phase.ACTIVE:
+                ExecuteActivePhase(player);
                 break;
             case Phase.DRAW:
-                ExecuteDrawPhase(phase, player);
+                ExecuteDrawPhase(player);
                 break;
             case Phase.SUPPORT:
-                ExecuteSupportPhase(phase, player);
+                ExecuteSupportPhase(player);
                 break;
             case Phase.MAIN:
-                ExecuteMainPhase(phase, player);
+                ExecuteMainPhase(player);
                 break;
             case Phase.END:
-                ExecuteEndPhase(phase, player);
+                ExecuteEndPhase(player);
                 break;
         }
     }
 
-    public void ExecuteActivePhase(Phase phase, Player player)
+    public void ExecuteActivePhase(Player player)
     {
-        Debug.Log("Executing active phase");
-        phase = Phase.DRAW;
+        
     }
 
-    public void ExecuteDrawPhase(Phase phase, Player player)
+    public void ExecuteDrawPhase(Player player)
     {
-        Debug.Log("Executing draw phase");
-        phase = Phase.SUPPORT;
+        
     }
 
-    public void ExecuteSupportPhase(Phase phase, Player player)
+    public void ExecuteSupportPhase(Player player)
     {
-        Debug.Log("Executing support phase");
-        phase = Phase.MAIN;
+        
     }
 
-    public void ExecuteMainPhase(Phase phase, Player player)
+    public void ExecuteMainPhase(Player player)
     {
-        Debug.Log("Executing main phase");
-        phase = Phase.END;
+        
     }
 
-    public void ExecuteEndPhase(Phase phase, Player player)
+    public void ExecuteEndPhase(Player player)
     {
-        Debug.Log("Executing end phase");
-        EndTurn(phase);
+        
     }
 
-    public void EndTurn(Phase phase)
+    public void EndTurn()
     {
         if (player1turn == true)
             player1turn = false;
@@ -115,6 +114,20 @@ public class GameManager : MonoBehaviour
         phase = Phase.ACTIVE;
     }
     
+    public void EndPhase()
+    {
+        if (phase == Phase.ACTIVE)
+            phase = Phase.DRAW;
+        else if (phase == Phase.DRAW)
+            phase = Phase.SUPPORT;
+        else if (phase == Phase.SUPPORT)
+            phase = Phase.MAIN;
+        else if (phase == Phase.MAIN)
+            phase = Phase.END;
+        else if (phase == Phase.END)
+            EndTurn();
+    }
+
     void CheckForLoseCondition()
     {
         if (player1.breakArea.breakLevel > 10 || player2.breakArea.breakLevel > 10)

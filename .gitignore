@@ -8,7 +8,8 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
-braverse_data/[Ii]mages/
+Assets/braverse_data/[Ii]mages/
+Assets/braverse_data/[Ii]mages_png/
 /[Ll]ogs/
 braverse_data/[Ii]mages/
 /[Uu]ser[Ss]ettings/

@@ -3,16 +3,22 @@ using UnityEngine;
 
 public class Card
 {
-    string name;
-    string cost;
-    bool hasFlip;
+    public string name;
+    public string productTitle;
+    public string desc;
+    public string rarity;
+    public string cardNo;
+    public string fieldGrade;
+    public string cardType;
+    public string energyType;
+    public string imagePath;
 }
 
 public class CookieCard : Card
 {
-    int level;
-    int hp;
-    List<Card> hpCards;
+    public int level;
+    public int fieldHP;
+    public List<Card> hpCards;
 }
 
 public class ItemCard : Card

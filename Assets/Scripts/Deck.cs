@@ -7,6 +7,7 @@ public class Deck
 {
     List<Card> deck;
     int max_size = 60;
+    Dictionary<string, int> cardQty = new Dictionary<string, int>();
 
     Card Pop()
     {

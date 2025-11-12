@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public StageArea stageArea = new StageArea();
     public Trash trash = new Trash();
 
-    public void DrawFromDeckToHand()
+    public void Draw()
     {
         
     }
